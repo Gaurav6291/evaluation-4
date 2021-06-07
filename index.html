@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Food Ordering</title>
+    <style>
+        nav{
+            background-color: aquamarine;
+            height: 50px;
+            width: 100vw;
+        }
+        nav > div {
+            width: 10%;
+            float: right;
+            font-size: large;
+        }
+        nav > div:hover {
+            color: brown;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="log" onclick="goToLogin()">login</div>
+            
+        <div id="sign" onclick="goToSignUp()">SignUp</div>
+            
+        <div onclick="goToMenu()">Menu</div>
+            
+    </nav>
+</body>
+</html>
+
+<script>
+    // let logi = document.getElementById('log')
+    // let sign = document.getElementById('sign')
+
+    function goToLogin(){
+        //console.log("hi")
+        window.location.href = "/login.html"
+    }
+    function goToSignUp(){
+        //console.log("hi")
+        window.location.href = "/signup.html"
+    }
+    function goToMenu(){
+        //console.log("hi")
+        window.location.href = "/menu.html"
+    }
+    // logi.addEventListener('click', goToLogin)
+</script>
+
+

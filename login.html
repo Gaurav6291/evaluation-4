@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+         nav{
+            background-color: aquamarine;
+            height: 50px;
+            width: 100vw;
+        }
+        nav > div {
+            width: 10%;
+            float: right;
+            font-size: large;
+        }
+        nav > div:hover {
+            color: brown;
+            cursor: pointer;
+        }
+        h1{
+            text-align: center;
+            color: cornflowerblue;
+        }
+        form{
+            width: 20%;
+            margin: 40px auto;
+        }
+        input{
+            margin: 20px 0px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="log" onclick="goToLogin()">login</div>
+            
+        <div id="sign" onclick="goToSignUp()">SignUp</div>
+            
+        <div onclick="goToMenu()">Menu</div>
+            
+    </nav>
+    <h1>Login to Purchase</h1>
+    <form id="loginForm">
+        <label for="username">USERNAME</label>
+        <input type="text" id="username">
+        <label for="password">PASSWORD</label>
+        <input type="password" id="password">
+    </form>
+    <!-- <button onclick="">Submit</button> -->
+</body>
+</html>
+<script>
+     function goToLogin(){
+        //console.log("hi")
+        window.location.href = "/login.html"
+    }
+    function goToSignUp(){
+        //console.log("hi")
+        window.location.href = "/signup.html"
+    }
+    function goToMenu(){
+        //console.log("hi")
+        window.location.href = "/menu.html"
+    }
+    function login(){
+        let form = document.getElementById('loginForm')
+        let username = form.username.value
+        let password = form.password.value
+    
+        let mydata = JSON.parse(localStorage.getItem('details'))
+
+        let yo = false;
+        for(let i=0;i<mydata.length;i++){
+            if(mydata[i].username === username && mydata.password === password){
+                yo =  true;
+                break;
+            }
+            else if(username =="" || password==""){
+                alert('incomplete details')
+                yo = false;
+                break;
+            }
+        }
+        if(yo){
+            window.location.href = "/menu.html"
+        }
+        else{
+            alert('Invalid Credential')
+        }
+
+
+
+    }
+</script>

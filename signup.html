@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Page</title>
+    <style>
+         nav{
+            background-color: aquamarine;
+            height: 50px;
+            width: 100vw;
+        }
+        nav > div {
+            width: 10%;
+            float: right;
+            font-size: large;
+        }
+        nav > div:hover {
+            color: brown;
+            cursor: pointer;
+        }
+         h1{
+            text-align: center;
+            color: salmon;
+        }
+        form{
+            width: 20%;
+            margin: 40px auto;
+            background-color:silver;
+        }
+        input{
+            margin: 20px 0px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div id="log" onclick="goToLogin()">login</div>
+            
+        <div id="sign" onclick="goToSignUp()">SignUp</div>
+            
+        <div onclick="goToMenu()">Menu</div>
+            
+    </nav>
+    <h1>Sign Up Here</h1>
+    <form id="signupForm">
+        <label for="username">USERNAME</label>
+        <input type="text" id="username">
+        <label for="password">PASSWORD</label>
+        <input type="password" id="password">
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" placeholder="xyz@gmail.com">
+        <label for="contact">MOBILE NUMBER</label>
+        <input type="number" id="contact" placeholder="+99xxxxxxxx">
+        
+    </form>
+    <button onclick="addDetails()">Submit</button>
+</body>
+</html>
+<script>
+ function goToLogin(){
+        //console.log("hi")
+        window.location.href = "/login.html"
+    }
+    function goToSignUp(){
+        //console.log("hi")
+        window.location.href = "/signup.html"
+    }
+    function goToMenu(){
+        //console.log("hi")
+        window.location.href = "/menu.html"
+    }
+
+    function addDetails(){
+        let form = document.getElementById('signupForm')
+
+        let username = form.username.value
+        let password = form.password.value
+        let email = form.email.value
+        let contact = form.contact.value
+    }
+
+    if(username == "" || password == "" || email == "" || contact == ""){
+        alert("sorry! You missed some details")
+    }
+    else{
+        var details = {
+            username,
+            password,
+            email,
+            contact
+        }
+    }
+let arr;
+arr = localStorage.getItem('details')
+if(arr == null){
+    arr = []
+}
+else{
+    arr = JSON.parse(arr)
+}
+arr.push(details)
+localStorage.setItem('details', JSON.stringify(arr))
+window.location.href = "/login.html"
+</script>
+
+
+
+
+
+
+
+

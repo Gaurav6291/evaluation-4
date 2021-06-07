@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>munu</title>
+<style>
+     nav{
+            background-color: aquamarine;
+            height: 50px;
+            width: 100vw;
+        }
+        nav > div {
+            width: 10%;
+            float: right;
+            font-size: large;
+        }
+        nav > div:hover {
+            color: brown;
+            cursor: pointer;
+        }
+</style>
+</head>
+<body>
+    <nav>
+        <div id="log" onclick="goToLogin()">login</div>
+            
+        <div id="sign" onclick="goToSignUp()">SignUp</div>
+            
+        <div onclick="goToMenu()">Menu</div>
+            
+    </nav>
+</body>
+</html>
+
+<script>
+     function goToLogin(){
+        //console.log("hi")
+        window.location.href = "/login.html"
+    }
+    function goToSignUp(){
+        //console.log("hi")
+        window.location.href = "/signup.html"
+    }
+    function goToMenu(){
+        //console.log("hi")
+        window.location.href = "/menu.html"
+    }
+    const dish 
+    [
+        {
+            image: 'https://akm-img-a-in.tosshub.com/indiatoday/images/story/201708/dish-story_647_081417052301.jpg',
+            price: 200,
+            description:'This is pani-puri',
+            time: '10 Min'
+        },
+        {
+            image: 'https://www.blueosa.com/wp-content/uploads/2020/01/the-best-top-10-indian-dishes.jpg',
+            price: 900,
+            description:'This is a rajasthani dish',
+            time: '2Hr'
+        },
+        {
+            image: 'https://www.blueosa.com/wp-content/uploads/2020/01/the-best-top-10-indian-dishes.jpg',
+            price: '',
+            description:'',
+            time: ''
+        },
+        {
+            image: 'https://www.blueosa.com/wp-content/uploads/2020/01/the-best-top-10-indian-dishes.jpg',
+            price: '300',
+            description:'This is a dish',
+            time: '1Hr'
+        },
+        {
+            image: 'https://www.blueosa.com/wp-content/uploads/2020/01/the-best-top-10-indian-dishes.jpg',
+            price: '500',
+            description:'This is a dish',
+            time: '1Hr'
+        },
+        {
+            image: 'https://www.blueosa.com/wp-content/uploads/2020/01/the-best-top-10-indian-dishes.jpg',
+            price: '55',
+            description:'This is a dish',
+            time: '1Hr'
+        }
+
+    ]
+
+        if(localStorage.getItem('dish') == null){
+            localStorage.setItem('dish', JSON.stringify(dish))
+        }
+
+        function dish(d){
+            let par = document.getElementById('display');
+            par.innerHTML = null
+        }
+        d.forEach(element => {
+          let div = document.createElement('div')
+          div.setAttribute('class', 'card')  
+
+          let pimg = document.createElement('img')
+            pimg.innerHTML = ` ${element.image}`
+            let pprice = document.createElement('p')
+            pprice.innerHTML = `Price: ${element.price}`
+            let pdesc = document.createElement('p')
+            pdesc.innerHTML = `Description: ${element.description}`
+            let ptime = document.createElement('p')
+            ptime.innerHTML = `Time: ${element.time}`
+            div.append(pimg, pprice, pdesc, ptime)
+            par.append(div)
+        });
+     var arr;
+     if (JSON.parse(localStorage.getItem('dish')==null)){
+        arr = [];
+        
+     }
+     else {
+        JSON.parse(localStorage.getItem('dish'));
+     }
+     arr.push()
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
